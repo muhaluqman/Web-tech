@@ -1,0 +1,2 @@
+echo "# lab mid"
+.
