@@ -1,2 +1,0 @@
-echo "# Assignment 3"
-.
