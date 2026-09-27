@@ -1,0 +1,103 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #f4f4f4;
+  color: #222222;
+  margin: 0;
+  padding: 20px;
+}
+
+.img-pfp {
+  width: 150px;
+}
+.resume {
+  background-color: #ffffff;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid #cccccc;
+}
+
+h1 {
+  color: #2b2b7a;
+  margin-bottom: 5px;
+}
+
+h2 {
+  color: #2b2b7a;
+  border-bottom: 2px solid #2b2b7a;
+  padding-bottom: 5px;
+  margin-top: 30px;
+}
+
+h3 {
+  color: #333333;
+  margin-bottom: 5px;
+}
+
+.job-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #555555;
+  margin-top: 0;
+}
+
+a {
+  color: #2b2b7a;
+}
+
+.contact-list {
+  list-style-type: none;
+}
+
+.contact-list li {
+  padding: 4px 0;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.entry {
+  border: 1px solid #e0e0e0;
+  padding: 12px;
+  margin-bottom: 12px;
+  background-color: #fafafa;
+}
+
+.entry-date {
+  color: #777777;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.yes-b {
+  position: relative;
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  opacity: 100;
+  transition: transform 0.3s;
+}
+.no-b {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  opacity: 100;
+  transition: transform 0.3s;
+}
+.no-b:hover {
+  position: absolute;
+  transform: translateX(250px);
+}
+.no-b:hover + .yes-b {
+  transform: scale(1.5);
+}
