@@ -1,0 +1,170 @@
+* {
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111;
+   padding: 0rem 1rem;
+}
+
+a {
+  color: inherit;
+}
+
+/* TOP BAR */
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0rem 0.85rem;
+
+  font-size: 0.75rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-top: 0.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+}
+
+.cart {
+  width: 1.9rem;
+  height: auto;
+  padding-left: 0.4rem;
+}
+
+/* LOGO + SEARCH */
+
+.header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.search-amex {
+  display: flex;
+  align-items: center;
+
+  width: 45rem;
+  max-width: 45vw;
+  grid-column: 2;
+}
+.f1-logo {
+  width: 33%;
+  height: auto;
+  justify-self: start;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 65%;
+  border: 1px solid #ccc;
+  border-radius: 10rem;
+
+  padding: 0.45rem 1rem;
+}
+.amex-logo {
+  width: 40%;
+  height: auto;
+  padding-left: 14rem;
+  padding-right: 14rem;
+}
+
+.search-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.search {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding-left: 0.75rem;
+
+  font-size: 0.95rem;
+}
+
+/* CATEGORY NAVIGATION */
+
+.category-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.65rem 3.5rem;
+
+  border-bottom: 1px solid #ccc;
+}
+
+.category-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.product-page-link{
+    display: flex;
+    padding: 1.25rem 0.5rem;
+    font-size: 0.8rem;
+    color: #ccc;
+}
+.page-anchor{
+    color: #111;
+}
+.product-main{
+    display: flex;
+}
+.carousel-gallery{
+    display:flexbox;
+    width: 10%;
+    padding: 0rem 0.5rem;;
+}
+.gallery-item{
+    padding: 0%;
+    margin: 0.5rem 0rem;
+    border: none;
+    border-radius: 5%;
+}
+.gallery-item:hover{
+    border: 2px #111 solid;
+    border-radius: 5%;
+}
+.featured-image{
+    width: 60%;
+    position: relative;
+    
+}
+.main-img-item{
+    width: 53rem;
+    height: 53rem;
+}
+.btn-next-image{
+    right: 2rem;
+    top: 26rem;
+    position: absolute;
+    background: none;
+    border: 1px solid black;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.2rem;
+}
+.product-details{
+    width: 40%;
+}
+.size-chart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
