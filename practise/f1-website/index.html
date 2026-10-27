@@ -3,34 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <title>F1 Store | The Official Formula One Store</title>
   </head>
 
   <body>
     <header class="header">
-      <!-- TOP BAR -->
-      <div class="top-bar">
-        <div class="sign-up">SIGN UP &amp; SAVE 15%</div>
-        <nav class="nav-links">
-          <a href="#">Gift Cards</a>
-          <a href="#">Track Order</a>
-          <a href="#">Help</a>
-          <a href="#">My Account</a>
-          <a href="#">Language</a>
-          <a href="#">USD $</a>
-          <img class="cart" src="content/cart.svg" alt="Shopping cart" />
-        </nav>
-      </div>
-
-      <!-- LOGO + SEARCH + PAYMENT LOGO -->
-      <div class="header-main">
-        <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+      <div class="header-main flex-wrap flex-md-nowrap">
+                <button class="hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#categories-menu" aria-label="Toggle menu">
           <span></span><span></span><span></span>
-      </button>
+        </button>
         <img class="f1-logo" src="content/f1-logo.svg" alt="F1 Store" />
 
-        <div class="search-bar">
+        <div class="search-bar d-none d-md-flex">
           <img class="search-icon" src="content/search.svg" alt="" />
 
           <input
@@ -40,23 +26,39 @@
           />
         </div>
 
-        <img class="amex-logo" src="content/amex-logo.avif" alt="AMEX-logo" />
+        <div class="header-icons d-md-none">
+          <img class="header-icon" src="content/search.svg" alt="Search" />
+          <img class="header-icon" src="content/account.svg" alt="Account" />
+          <img class="header-icon" src="content/bag.svg" alt="Shopping bag" />
+        </div>
+        <div class="header-right d-none d-md-flex">
+          <img class="amex-logo d-none d-lg-block" src="content/amex-logo.avif" alt="AMEX-logo" />
+          <a class="lang-link" href="#"><img class="globe" src="content/languages.svg" alt="Language" /><span class="chevron"></span></a>
+          <a class="sign-in" href="#">Sign In</a>
+          <a class="cart-box" href="#"><img class="cart" src="content/cart.svg" alt="Shopping cart" /></a>
+        </div>
       </div>
-      <!-- MAIN CATEGORY NAVIGATION -->
-      <nav class="category-nav" id="categories-nav">
-        <a href="#">Shop By Team</a>
-        <a href="#">Shop By Driver</a>
-        <a href="#">Men</a>
-        <a href="#">Women</a>
-        <a href="#">Kids</a>
-        <a href="#">Headwear</a>
-        <a href="#">Gifts &amp; Accessories</a>
-        <a href="#">Collectibles</a>
-        <a href="#">Clearance</a>
+      <nav class="category-nav navbar navbar-expand-md">
+        <div class="collapse navbar-collapse" id="categories-menu">
+          <ul class="navbar-nav w-100 flex-wrap justify-content-center">
+            <li class="nav-item"><a class="nav-link" href="#">Shop By Team</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Shop By Driver</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Men</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Women</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Kids</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Headwear</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Gifts &amp; Accessories</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Collectibles</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Clearance</a></li>
+        <li class="nav-item d-md-none"><a class="nav-link" href="#">Gift Cards</a></li>
+        <li class="nav-item d-md-none"><a class="nav-link" href="#">Track Order</a></li>
+        <li class="nav-item d-md-none"><a class="nav-link" href="#">Help</a></li>
+        <li class="nav-item d-md-none"><a class="nav-link" href="#">My Account</a></li>
+          </ul>
+        </div>
       </nav>
 
-      <!-- TEAM NAVIGATION -->
-      <section class="teams-nav">
+      <section class="teams-nav flex-column flex-lg-row">
         <div class="team-title">
           <div>Shop Your Team</div>
           <a href="#">Add Favorites</a>
@@ -152,96 +154,167 @@
         </div>
       </section>
     </header>
-    <section>
-      <div class="stage">
-        <img
-          class="stage-bg"
-          src="https://f1store.formula1.com/content/ws/all/6b40145f-1ec8-49d0-80e7-ead5e5377bb3__1600X600.png"
-          alt="Main Image"
+     <section class="full-media">
+       <img
+          class="media-bg"
+          src="https://f1store.formula1.com/content/ws/all/99aa858f-770e-4492-a252-5c9ff026bca8__1600X900.png"
+          alt="Media Image"
           href="#"
         />
-        <div class="stage-content">
-          <a href="#">Max Takes Victory</a>
-          <p>Celebrate his first win of the season</p>
-          <button class="stage-button">Shop now</button>
+        <div class="media-content">
+          <a href="#">Peanuts x Formula 1</a>
+          <p>The gang is taking racing for a spin</p>
+          <button class="media-button">Shop now</button>
         </div>
       </div>
     </section>
     <section class="featured-products">
       <a class="view-all-p" href="#">VIEW ALL</a>
-      <div class="product">
-          <a href="product.html"><img class="product-image" src="https://images.footballfanatics.com/red-bull-racing/oracle-red-bull-racing-2026-team-full-zip-hoodie-unisex_ss5_p-203284852+u-giqeakh89roz4j8km2s3+v-f1iofm5cjtgnecprdol8.jpg?_hv=2&w=400" alt="Product"></a>
+      <div class="row g-0 row-cols-2 row-cols-md-3 row-cols-lg-4 flex-nowrap overflow-x-auto">
+        <div class="col">
+    <div class="product">
+            <a href="product.html"><img class="product-image" src="https://images.footballfanatics.com/red-bull-racing/oracle-red-bull-racing-2026-team-full-zip-hoodie-unisex_ss5_p-203284852+u-giqeakh89roz4j8km2s3+v-f1iofm5cjtgnecprdol8.jpg?_hv=2&w=400" alt="Product"></a>
             <div class="product-text">
-              <a href="#" class="product-price">
-                US$76.00
-              </a>
+              <p class="product-price">
+                  US$76.00
+              </p>
               <p class="product-description">
                 Oracle Red Bull Racing 2026 Team Full Zip Hoodie - Unisex
               </p>
             </div>
           </div>
-      </div>
-      <div class="product">
-          <img class="product-image" src="https://images.footballfanatics.com/red-bull-racing/oracle-red-bull-racing-2026-team-set-up-polo_ss5_p-203284846+u-rl80itriba1kzjsfhgrx+v-dq0yskqigutewtqdsetq.jpg?_hv=2&w=400" alt="Product">
+        </div>
+        <div class="col">
+    <div class="product">
+            <a href="product.html"><img class="product-image" src="https://images.footballfanatics.com/red-bull-racing/oracle-red-bull-racing-2026-team-set-up-polo_ss5_p-203284846+u-rl80itriba1kzjsfhgrx+v-dq0yskqigutewtqdsetq.jpg?_hv=2&w=400" alt="Product"></a>
             <div class="product-text">
               <p class="product-price">
-                  US$100.80
-              </p>
+                    US$100.80
+                </p>
               <p class="product-description">
                 Oracle Red Bull Racing 2026 Team Set Up Polo
               </p>
             </div>
           </div>
-      </div>
-      <div class="product">
-          <img class="product-image" src="https://images.footballfanatics.com/red-bull-racing/oracle-red-bull-racing-max-verstappen-1:4-2026-orange-helmet_ss5_p-204169263+u-fg5vxder5s6vkjprsjh7+v-ohwl7w9werzax4swo9gp.jpg?_hv=2&w=400" alt="Product">
+        </div>
+        <div class="col">
+    <div class="product">
+            <a href="product.html"><img class="product-image" src="https://images.footballfanatics.com/red-bull-racing/oracle-red-bull-racing-max-verstappen-1:4-2026-orange-helmet_ss5_p-204169263+u-fg5vxder5s6vkjprsjh7+v-ohwl7w9werzax4swo9gp.jpg?_hv=2&w=400" alt="Product"></a>
             <div class="product-text">
               <p class="product-price">
-                  US$92.00
-              </p>
+                    US$92.00
+                </p>
               <p class="product-description">
                 Max Verstappen Red Bull Racing 2026 Orange Lion Helmet - 1:4 Model
               </p>
             </div>
           </div>
-      </div>
-      <div class="product">
-          <img class="product-image" src="https://images.footballfanatics.com/red-bull-racing/oracle-red-bull-racing-classic-racing-jacket-unisex_ss5_p-203495680+u-6pwhr2a5mqklfdiwrdmm+v-qru7h6d6cvnwbzpcdbij.jpg?_hv=2&w=400" alt="Product">
+        </div>
+        <div class="col">
+    <div class="product">
+            <a href="product.html"><img class="product-image" src="https://images.footballfanatics.com/red-bull-racing/oracle-red-bull-racing-classic-racing-jacket-unisex_ss5_p-203495680+u-6pwhr2a5mqklfdiwrdmm+v-qru7h6d6cvnwbzpcdbij.jpg?_hv=2&w=400" alt="Product"></a>
             <div class="product-text">
               <p class="product-price">
-                  US$166.40
-              </p>
+                    US$166.40
+                </p>
               <p class="product-description">
                 Oracle Red Bull Racing Classic racing Jacket - Unisex
               </p>
             </div>
           </div>
-      </div>
-    </section>
-    <section class="full-media">
-       <img
-          class="media-bg"
-          src="https://f1store.formula1.com/content/ws/all/a0186756-c4d7-43c7-aac8-3ddf3ab14eca__1600X900.png"
-          alt="Media Image"
-          href="#"
-        />
-        <div class="media-content">
-          <a href="#">Next Stop: Bahrain</a>
-          <p>Back your team this race weekend</p>
-          <button class="media-button">Shop now</button>
+        </div>
+        <div class="col">
+    <div class="product">
+            <a href="product.html"><img class="product-image" src="https://images.footballfanatics.com/red-bull-racing/oracle-red-bull-racing-2026-team-full-zip-hoodie-unisex_ss5_p-203284852+u-giqeakh89roz4j8km2s3+v-f1iofm5cjtgnecprdol8.jpg?_hv=2&w=400" alt="Product"></a>
+            <div class="product-text">
+              <p class="product-price">
+                    US$76.00
+                </p>
+              <p class="product-description">
+                Oracle Red Bull Racing 2026 Team Full Zip Hoodie - Unisex
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+    <div class="product">
+            <a href="product.html"><img class="product-image" src="https://images.footballfanatics.com/red-bull-racing/oracle-red-bull-racing-2026-team-set-up-polo_ss5_p-203284846+u-rl80itriba1kzjsfhgrx+v-dq0yskqigutewtqdsetq.jpg?_hv=2&w=400" alt="Product"></a>
+            <div class="product-text">
+              <p class="product-price">
+                    US$100.80
+                </p>
+              <p class="product-description">
+                Oracle Red Bull Racing 2026 Team Set Up Polo
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+    <div class="product">
+            <a href="product.html"><img class="product-image" src="https://images.footballfanatics.com/red-bull-racing/oracle-red-bull-racing-max-verstappen-1:4-2026-orange-helmet_ss5_p-204169263+u-fg5vxder5s6vkjprsjh7+v-ohwl7w9werzax4swo9gp.jpg?_hv=2&w=400" alt="Product"></a>
+            <div class="product-text">
+              <p class="product-price">
+                    US$92.00
+                </p>
+              <p class="product-description">
+                Max Verstappen Red Bull Racing 2026 Orange Lion Helmet - 1:4 Model
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+    <div class="product">
+            <a href="product.html"><img class="product-image" src="https://images.footballfanatics.com/red-bull-racing/oracle-red-bull-racing-classic-racing-jacket-unisex_ss5_p-203495680+u-6pwhr2a5mqklfdiwrdmm+v-qru7h6d6cvnwbzpcdbij.jpg?_hv=2&w=400" alt="Product"></a>
+            <div class="product-text">
+              <p class="product-price">
+                    US$166.40
+                </p>
+              <p class="product-description">
+                Oracle Red Bull Racing Classic racing Jacket - Unisex
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
     <section class="full-media">
        <img
           class="media-bg"
-          src="https://f1store.formula1.com/content/ws/all/e9aff13c-c7e5-4757-9f3b-04f923d34afa__1600X900.png"
+          src="https://f1store.formula1.com/content/ws/all/3822c56f-3aed-408d-9a5c-5820b9a64b49__1600X900.png"
           alt="Media Image"
           href="#"
         />
         <div class="media-content">
-          <a href="#">Red Bull Classics</a>
-          <p>Racing heritage reimagined for today</p>
+          <a href="#">Big Hats and Fast Laps</a>
+          <p>Discover the Austin Race Specials</p>
+          <button class="media-button">Shop now</button>
+        </div>
+      </div>
+    </section>
+        <section class="full-media">
+       <img
+          class="media-bg"
+          src="https://f1store.formula1.com/content/ws/all/07cbb17b-3920-40c6-b9c8-36aeec4397c9__1600X900.png"
+          alt="Media Image"
+          href="#"
+        />
+        <div class="media-content">
+          <a href="#">A New Look for Austin</a>
+          <p>
+Verstappen brings a new helmet for Austin</p>
+          <button class="media-button">Shop now</button>
+        </div>
+      </div>
+    </section>
+        <section class="full-media">
+       <img
+          class="media-bg"
+          src="https://f1store.formula1.com/content/ws/all/e5d00f90-b0cc-4c03-b243-25dbf1a67d55__1600X600.png"
+          alt="Media Image"
+          href="#"
+        />
+        <div class="media-content">
+          <a href="#">Austin Specials</a>
           <button class="media-button">Shop now</button>
         </div>
       </div>
@@ -269,54 +342,54 @@
           </div>
         </div>
     </section>
-    <section class="half-media">
+    <section class="half-media flex-column flex-md-row">
       <div class="half-media-item">
        <img
           class="half-media-bg"
-          src="https://f1store.formula1.com/content/ws/all/949a1eb1-4c38-4c4e-a4b9-86f2de1f5abe__800X700.png"
+          src="https://f1store.formula1.com/content/ws/all/a0a316b0-8ed4-411a-8600-6b28e6a17348__640X640.png"
           alt="Media Image"
           href="#"
         />
         <div class="half-media-content">
-          <a href="#">Mercedes Vanda Bloom</a>
+          <a href="#">Williams Austin Specials</a>
           <button class="half-media-button">Shop now</button>
         </div>
       </div>
       <div class="half-media-item">
        <img
           class="half-media-bg"
-          src="https://f1store.formula1.com/content/ws/all/651b0feb-1c4f-4e0f-9c5d-f1ade9e5053c__800X700.png"
+          src="https://f1store.formula1.com/content/ws/all/f5c52c93-c40f-4f26-9082-2971f85efcaf__640X640.png"
           alt="Media Image"
           href="#"
         />
         <div class="half-media-content">
-          <a href="#">Audi Singapore Cap</a>
+          <a href="#">Audi Austin Cap</a>
           <button class="half-media-button">Shop now</button>
         </div>
       </div>
     </section>
-    <section class="half-media">
+    <section class="half-media flex-column flex-md-row">
       <div class="half-media-item">
        <img
           class="half-media-bg"
-          src="https://f1store.formula1.com/content/ws/all/9334d01e-c9da-460c-8f5a-5b1b21924362__800X700.png"
+          src="https://f1store.formula1.com/content/ws/all/3a80df61-04ce-4846-addc-730b58833f75__640X640.png"
           alt="Media Image"
           href="#"
         />
         <div class="half-media-content">
-          <a href="#">2027 Calendars</a>
+          <a href="#">Mitchell & Ness Austin</a>
           <button class="half-media-button">Shop now</button>
         </div>
       </div>
       <div class="half-media-item">
        <img
           class="half-media-bg"
-          src="https://f1store.formula1.com/content/ws/all/dd49bd47-ca0b-41fc-957f-39b86093d97a__800X700.png"
+          src=""
           alt="Media Image"
           href="#"
         />
         <div class="half-media-content">
-          <a href="#">Heritage Collection</a>
+          <a href="#">Mercedes Austin Cap</a>
           <button class="half-media-button">Shop now</button>
         </div>
       </div>
@@ -353,7 +426,7 @@
           </div>
         </div>
     </section>
-    <section class="commerce-cards">
+    <section class="commerce-cards flex-wrap">
       <div class="ccard-item">
         <img class="ccard-img" src="https://f1store.formula1.com/content/ws/all/34dcbbae-e018-471a-aa3b-74a05bb0ed51.svg?w=2046" alt="100% Official Merchandise">
       </div>
@@ -383,7 +456,7 @@
       <p><a href="#">Charles Leclerc</a> | <a href="#">Lewis Hamilton</a> | <a href="#">Fernando Alonso</a> | <a href="#">Sergio Perez</a> | <a href="#">Lando Norris</a></p>
       <p>The F1 logo, F1, FORMULA 1, FIA FORMULA ONE WORLD CHAMPIONSHIP, GRAND PRIX and related marks are trade marks of Formula One Licensing BV, a Formula 1 company. All rights reserved.</p></p>
     </section>  
-    <section class="quick-links">
+    <section class="quick-links flex-wrap">
         <div class="ql-set">
           <p class="bold">Customer Service</p>
             <a href="#">Help</a>
@@ -421,10 +494,6 @@
       <div class="footer-text"><p>&copy; 2026, Fanatics, LLC. and/or its affiliated entities. All Rights Reserved. No portion of this site may be reproduced or duplicated without the express permission of Fanatics.</p></div>
       <div class="footer-payments"><img class="payment-img" src="content/payments-footer.png" alt="Payment methodss"></div>
     </footer>
-    <script>
-  function toggleMenu() {
-    document.getElementById('categories-nav').classList.toggle('open');
-  }
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
