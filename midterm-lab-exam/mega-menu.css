@@ -1,0 +1,274 @@
+/* =====================================================================
+   TASK 1 - Mega-menu in the navbar        (loaded AFTER style.css / product.css)
+   N = 74  ->  BP = 600 + 74 = 674px,  H = (74 x 7) mod 360 = 158,  K = (74 mod 3) + 3 = 5
+   Media queries cannot read CSS variables, so 674px is written out literally:
+   to change BP, search this file for "674" (and "673") and replace it.
+   ===================================================================== */
+
+:root {
+  --accent: hsl(158, 70%, 45%); /* hsl(H, 70%, 45%) with H = 158 */
+}
+
+/* ---- BP-based show/hide helpers -------------------------------------
+   Bootstrap's d-md-* switch at 768px. The menu has to switch at BP (674px),
+   so the header and nav use these two classes instead.                  */
+.bp-up {
+  display: none !important;
+}
+@media (min-width: 674px) {
+  .bp-up {
+    display: flex !important;
+  }
+  .bp-down {
+    display: none !important;
+  }
+}
+
+/* ---- Stacking: header (and the panel inside it) above all page content -- */
+.header {
+  position: relative;
+  z-index: 1000;
+}
+.category-nav {
+  position: relative; /* the mega panel is positioned against the navbar */
+  z-index: 1000;
+}
+
+/* ---- Navbar expands at BP instead of Bootstrap's 768px ---------------- */
+@media (min-width: 674px) {
+  .category-nav .navbar-collapse.collapse {
+    display: flex !important; /* beats Bootstrap's .collapse:not(.show) */
+    flex-basis: auto;
+  }
+  .category-nav .navbar-nav {
+    flex-direction: row;
+  }
+  .hamburger {
+    display: none;
+  }
+  .header-main {
+    flex-wrap: nowrap;
+  }
+}
+
+/* between BP and 768px the old "mobile" rules from style.css/product.css are
+   still active, so restore the desktop-style header for that narrow band */
+@media (min-width: 674px) and (max-width: 768px) {
+  .header-main {
+    padding: 1.5rem;
+    justify-content: space-between;
+  }
+  .f1-logo {
+    flex: 1;
+    height: 3.75rem;
+    width: auto;
+  }
+  .search-bar {
+    width: 45%;
+    margin-top: 0;
+  }
+  .category-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    padding: 0.65rem 1rem;
+    border-top: 1px solid #ccc;
+  }
+  .category-nav .nav-link {
+    padding: 0;
+  }
+}
+
+/* =====================================================================
+   MEGA PANEL  (BP and wider)
+   ===================================================================== */
+.mega-trigger::after {
+  content: "";
+  display: none;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-left: 0.45rem;
+  border-right: 2px solid #111;
+  border-bottom: 2px solid #111;
+  transform: translateY(-0.15rem) rotate(45deg);
+}
+
+.mega-panel {
+  display: none; /* below BP the accordion is used instead */
+}
+
+@media (min-width: 674px) {
+  .mega-trigger::after {
+    display: inline-block;
+  }
+
+  .mega-panel {
+    display: block;
+    position: absolute; /* out of flow: does not push the page down */
+    top: 100%; /* directly under the navbar */
+    left: 0;
+    right: 0; /* full width */
+    z-index: 1000;
+    background: #fff;
+    border-top: 3px solid var(--accent);
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 14px 24px rgba(0, 0, 0, 0.18);
+    padding: 1.5rem 1rem;
+
+    /* closed state: not focusable, not hoverable, invisible */
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      opacity 0.15s ease,
+      visibility 0s linear 0.15s;
+  }
+
+  /* OPEN: pointer over the menu item OR the panel (the panel is a child of the
+     <li>, so moving the mouse down into it keeps :hover alive) OR keyboard
+     focus anywhere inside the <li> (Tab onto the link, then Tab into the panel) */
+  .mega-item:hover > .mega-panel,
+  .mega-item:focus-within > .mega-panel {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+  }
+
+  /* invisible bridge over the navbar's bottom padding so the hover does not
+     drop while the pointer crosses the gap between the link and the panel */
+  .mega-panel::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -0.65rem;
+    height: 0.65rem;
+  }
+
+  .mega-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* K = 5 columns */
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .mega-heading {
+    margin: 0 0 0.6rem;
+    padding-bottom: 0.4rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .mega-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .category-nav .mega-col a {
+    display: block;
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+    font-weight: 400;
+    white-space: normal;
+  }
+  .category-nav .mega-col a:hover,
+  .category-nav .mega-col a:focus-visible {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  .mega-accordion {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  /* the new 10th item would wrap "Clearance" onto a second row, so the gap
+     between items and the side padding shrink a little on wide screens */
+  .category-nav {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .category-nav .navbar-nav {
+    column-gap: clamp(0.9rem, 1.6vw, 2.5rem);
+  }
+
+  /* navbar bottom padding is 1.35rem here (0.65rem below 992px) */
+  .mega-panel::before {
+    top: -1.35rem;
+    height: 1.35rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .mega-grid {
+    gap: 2rem;
+  }
+  .mega-panel {
+    padding: 2rem;
+  }
+}
+
+/* keyboard focus ring in the accent colour */
+.category-nav a:focus-visible,
+.mega-accordion summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* =====================================================================
+   ACCORDION  (below BP, inside the hamburger menu) - <details>/<summary>
+   ===================================================================== */
+.mega-item {
+  width: 100%;
+}
+@media (min-width: 674px) {
+  .mega-item {
+    width: auto;
+  }
+}
+
+.mega-accordion details {
+  border-top: 1px solid #ddd;
+}
+.mega-accordion summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.mega-accordion summary::-webkit-details-marker {
+  display: none;
+}
+.mega-accordion summary::after {
+  content: "+";
+  font-size: 1.2rem;
+  line-height: 1;
+}
+.mega-accordion details[open] summary::after {
+  content: "\2013"; /* en dash */
+}
+.mega-accordion details[open] > summary {
+  border-left: 3px solid var(--accent);
+  padding-left: 0.6rem;
+}
+.mega-accordion ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.5rem 1rem;
+}
+.category-nav .mega-accordion a {
+  display: block;
+  padding: 0.35rem 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  white-space: normal;
+}

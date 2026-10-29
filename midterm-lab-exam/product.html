@@ -9,6 +9,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="product.css" />
+    <link rel="stylesheet" href="mega-menu.css" />
   </head>
   <body>
     <header class="header">
@@ -24,7 +25,7 @@
         </button>
         <img class="f1-logo" src="content/f1-logo.svg" alt="F1 Store" />
 
-        <div class="search-bar d-none d-md-flex">
+        <div class="search-bar bp-up">
           <img class="search-icon" src="content/search.svg" alt="" />
 
           <input
@@ -34,12 +35,12 @@
           />
         </div>
 
-        <div class="header-icons d-md-none">
+        <div class="header-icons bp-down">
           <img class="header-icon" src="content/search.svg" alt="Search" />
           <img class="header-icon" src="content/account.svg" alt="Account" />
           <img class="header-icon" src="content/bag.svg" alt="Shopping bag" />
         </div>
-        <div class="header-right d-none d-md-flex">
+        <div class="header-right bp-up">
           <img
             class="amex-logo d-none d-lg-block"
             src="content/amex-logo.avif"
@@ -58,9 +59,124 @@
         </div>
       </div>
 
-      <nav class="category-nav navbar navbar-expand-md">
+      <nav class="category-nav navbar" aria-label="Main navigation">
         <div class="collapse navbar-collapse" id="categories-menu">
           <ul class="navbar-nav w-100 flex-wrap justify-content-center">
+            <li class="nav-item mega-item">
+              <a class="nav-link mega-trigger" href="#" aria-haspopup="true"
+                >Shop by Category</a
+              >
+
+              <!-- BP and wider: full-width panel, 5 columns (hover / :focus-within) -->
+              <div class="mega-panel" id="mega-panel">
+                <div class="mega-grid">
+                  <div class="mega-col">
+                    <h3 class="mega-heading">Apparel</h3>
+                    <ul>
+                      <li><a href="#">T-Shirts</a></li>
+                      <li><a href="#">Polos</a></li>
+                      <li><a href="#">Hoodies</a></li>
+                      <li><a href="#">Jackets</a></li>
+                      <li><a href="#">Team Sets</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-col">
+                    <h3 class="mega-heading">Headwear</h3>
+                    <ul>
+                      <li><a href="#">Caps</a></li>
+                      <li><a href="#">Beanies</a></li>
+                      <li><a href="#">Bucket Hats</a></li>
+                      <li><a href="#">Visors</a></li>
+                      <li><a href="#">Snapbacks</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-col">
+                    <h3 class="mega-heading">Collectibles</h3>
+                    <ul>
+                      <li><a href="#">Model Cars</a></li>
+                      <li><a href="#">Mini Helmets</a></li>
+                      <li><a href="#">Pin Badges</a></li>
+                      <li><a href="#">Posters</a></li>
+                      <li><a href="#">Signed Items</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-col">
+                    <h3 class="mega-heading">Accessories</h3>
+                    <ul>
+                      <li><a href="#">Bags</a></li>
+                      <li><a href="#">Mugs</a></li>
+                      <li><a href="#">Keyrings</a></li>
+                      <li><a href="#">Phone Cases</a></li>
+                      <li><a href="#">Lanyards</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-col">
+                    <h3 class="mega-heading">Gifts</h3>
+                    <ul>
+                      <li><a href="#">Gift Cards</a></li>
+                      <li><a href="#">Under $50</a></li>
+                      <li><a href="#">Calendars</a></li>
+                      <li><a href="#">Home &amp; Office</a></li>
+                      <li><a href="#">New Arrivals</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- below BP: same 5 groups as an accordion inside the hamburger menu -->
+              <div class="mega-accordion">
+                <details>
+                  <summary>Apparel</summary>
+                  <ul>
+                    <li><a href="#">T-Shirts</a></li>
+                    <li><a href="#">Polos</a></li>
+                    <li><a href="#">Hoodies</a></li>
+                    <li><a href="#">Jackets</a></li>
+                    <li><a href="#">Team Sets</a></li>
+                  </ul>
+                </details>
+                <details>
+                  <summary>Headwear</summary>
+                  <ul>
+                    <li><a href="#">Caps</a></li>
+                    <li><a href="#">Beanies</a></li>
+                    <li><a href="#">Bucket Hats</a></li>
+                    <li><a href="#">Visors</a></li>
+                    <li><a href="#">Snapbacks</a></li>
+                  </ul>
+                </details>
+                <details>
+                  <summary>Collectibles</summary>
+                  <ul>
+                    <li><a href="#">Model Cars</a></li>
+                    <li><a href="#">Mini Helmets</a></li>
+                    <li><a href="#">Pin Badges</a></li>
+                    <li><a href="#">Posters</a></li>
+                    <li><a href="#">Signed Items</a></li>
+                  </ul>
+                </details>
+                <details>
+                  <summary>Accessories</summary>
+                  <ul>
+                    <li><a href="#">Bags</a></li>
+                    <li><a href="#">Mugs</a></li>
+                    <li><a href="#">Keyrings</a></li>
+                    <li><a href="#">Phone Cases</a></li>
+                    <li><a href="#">Lanyards</a></li>
+                  </ul>
+                </details>
+                <details>
+                  <summary>Gifts</summary>
+                  <ul>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Under $50</a></li>
+                    <li><a href="#">Calendars</a></li>
+                    <li><a href="#">Home &amp; Office</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                  </ul>
+                </details>
+              </div>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Shop By Team</a>
             </li>
@@ -78,16 +194,16 @@
               <a class="nav-link" href="#">Collectibles</a>
             </li>
             <li class="nav-item"><a class="nav-link" href="#">Clearance</a></li>
-            <li class="nav-item d-md-none">
+            <li class="nav-item bp-down">
               <a class="nav-link" href="#">Gift Cards</a>
             </li>
-            <li class="nav-item d-md-none">
+            <li class="nav-item bp-down">
               <a class="nav-link" href="#">Track Order</a>
             </li>
-            <li class="nav-item d-md-none">
+            <li class="nav-item bp-down">
               <a class="nav-link" href="#">Help</a>
             </li>
-            <li class="nav-item d-md-none">
+            <li class="nav-item bp-down">
               <a class="nav-link" href="#">My Account</a>
             </li>
           </ul>
