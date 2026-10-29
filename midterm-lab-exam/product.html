@@ -38,7 +38,13 @@
         <div class="header-icons bp-down">
           <img class="header-icon" src="content/search.svg" alt="Search" />
           <img class="header-icon" src="content/account.svg" alt="Account" />
-          <img class="header-icon" src="content/bag.svg" alt="Shopping bag" />
+          <a
+            class="header-cart"
+            href="checkout.html"
+            aria-label="Shopping cart"
+          >
+            <img class="header-icon" src="content/bag.svg" alt="" />
+          </a>
         </div>
         <div class="header-right bp-up">
           <img
@@ -53,8 +59,8 @@
               alt="Language" /><span class="chevron"></span
           ></a>
           <a class="sign-in" href="#">Sign In</a>
-          <a class="cart-box" href="#"
-            ><img class="cart" src="content/cart.svg" alt="Shopping cart"
+          <a class="cart-box" href="checkout.html" aria-label="Shopping cart"
+            ><img class="cart" src="content/cart.svg" alt=""
           /></a>
         </div>
       </div>
@@ -67,7 +73,6 @@
                 >Shop by Category</a
               >
 
-              <!-- BP and wider: full-width panel, 5 columns (hover / :focus-within) -->
               <div class="mega-panel" id="mega-panel">
                 <div class="mega-grid">
                   <div class="mega-col">
@@ -123,7 +128,6 @@
                 </div>
               </div>
 
-              <!-- below BP: same 5 groups as an accordion inside the hamburger menu -->
               <div class="mega-accordion">
                 <details>
                   <summary>Apparel</summary>

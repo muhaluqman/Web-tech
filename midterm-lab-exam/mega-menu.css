@@ -1,17 +1,7 @@
-/* =====================================================================
-   TASK 1 - Mega-menu in the navbar        (loaded AFTER style.css / product.css)
-   N = 74  ->  BP = 600 + 74 = 674px,  H = (74 x 7) mod 360 = 158,  K = (74 mod 3) + 3 = 5
-   Media queries cannot read CSS variables, so 674px is written out literally:
-   to change BP, search this file for "674" (and "673") and replace it.
-   ===================================================================== */
-
 :root {
   --accent: hsl(158, 70%, 45%); /* hsl(H, 70%, 45%) with H = 158 */
 }
 
-/* ---- BP-based show/hide helpers -------------------------------------
-   Bootstrap's d-md-* switch at 768px. The menu has to switch at BP (674px),
-   so the header and nav use these two classes instead.                  */
 .bp-up {
   display: none !important;
 }
@@ -51,8 +41,6 @@
   }
 }
 
-/* between BP and 768px the old "mobile" rules from style.css/product.css are
-   still active, so restore the desktop-style header for that narrow band */
 @media (min-width: 674px) and (max-width: 768px) {
   .header-main {
     padding: 1.5rem;
@@ -79,9 +67,6 @@
   }
 }
 
-/* =====================================================================
-   MEGA PANEL  (BP and wider)
-   ===================================================================== */
 .mega-trigger::after {
   content: "";
   display: none;
@@ -123,9 +108,6 @@
       visibility 0s linear 0.15s;
   }
 
-  /* OPEN: pointer over the menu item OR the panel (the panel is a child of the
-     <li>, so moving the mouse down into it keeps :hover alive) OR keyboard
-     focus anywhere inside the <li> (Tab onto the link, then Tab into the panel) */
   .mega-item:hover > .mega-panel,
   .mega-item:focus-within > .mega-panel {
     visibility: visible;
@@ -133,8 +115,6 @@
     transition-delay: 0s;
   }
 
-  /* invisible bridge over the navbar's bottom padding so the hover does not
-     drop while the pointer crosses the gap between the link and the panel */
   .mega-panel::before {
     content: "";
     position: absolute;
@@ -187,8 +167,6 @@
 }
 
 @media (min-width: 992px) {
-  /* the new 10th item would wrap "Clearance" onto a second row, so the gap
-     between items and the side padding shrink a little on wide screens */
   .category-nav {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -197,7 +175,6 @@
     column-gap: clamp(0.9rem, 1.6vw, 2.5rem);
   }
 
-  /* navbar bottom padding is 1.35rem here (0.65rem below 992px) */
   .mega-panel::before {
     top: -1.35rem;
     height: 1.35rem;
@@ -213,16 +190,12 @@
   }
 }
 
-/* keyboard focus ring in the accent colour */
 .category-nav a:focus-visible,
 .mega-accordion summary:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
-/* =====================================================================
-   ACCORDION  (below BP, inside the hamburger menu) - <details>/<summary>
-   ===================================================================== */
 .mega-item {
   width: 100%;
 }
